@@ -1,0 +1,88 @@
+﻿<Window x:Class="CinemaManagerGUI.Manager"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CinemaManagerGUI"
+        mc:Ignorable="d"
+        Title="Manager" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="140"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Border Grid.Column="0" Grid.RowSpan="5" BorderBrush="Black" Background="#bcbcbc" BorderThickness="2"/>
+        <Border Grid.Column="1" Grid.RowSpan="5" BorderBrush="Black" Background="#bcbcbc" BorderThickness="2"/>
+        <Border Grid.Column="2" Grid.RowSpan="5" BorderBrush="Black" Background="#bcbcbc" BorderThickness="2"/>
+        <Border Grid.ColumnSpan="3" BorderBrush="Black" Background="#bcbcbc" BorderThickness="2">
+            <TextBlock VerticalAlignment="Center" Text="Cinema Panel Manager" HorizontalAlignment="Center" FontSize="30"/>
+        </Border>
+
+        <!-- Panel Filmy -->
+        <Border Grid.Row="1" Margin="10" BorderBrush="#52C7ED" Background="#9BDEF4" BorderThickness="1">
+            <GroupBox Width="220" Height="100">
+                <GroupBox.Header>
+                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Filmy</TextBlock>
+                </GroupBox.Header>
+                <TextBlock FontSize="15" TextWrapping="Wrap">
+                    <TextBlock.Text >Możliwe opcje do zrobienia za pomocą tego panelu</TextBlock.Text>
+                </TextBlock>
+            </GroupBox>
+        </Border>
+        <StackPanel Grid.Row="2">
+            <Button Click="AddFilm_Click">Dodaj film</Button>
+            <Button Click="RemoveFilm_Click" Name="RemoveFilmButton">Usuń film</Button>
+            <Button Click="ViewFilms_Click">Przeglądaj bazę</Button>
+
+            <ListBox Name="FilmListBox" Margin="10" Height="100" SelectionChanged="FilmListBox_SelectionChanged">
+            </ListBox>
+        </StackPanel>
+
+        <!-- Panel Sale kinowe -->
+        <Border Grid.Row="1" Grid.Column="1" Margin="10" BorderBrush="#52C7ED" Background="#9BDEF4" BorderThickness="1">
+            <GroupBox Width="220" Height="100">
+                <GroupBox.Header>
+                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Sale kinowe</TextBlock>
+                </GroupBox.Header>
+                <TextBlock FontSize="15" TextWrapping="Wrap">
+                    <TextBlock.Text >Możliwe opcje do zrobienia za pomocą tego panelu</TextBlock.Text>
+                </TextBlock>
+            </GroupBox>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.Column="1">
+            <ComboBox Name="RoomsComboBox" Margin="10" Height="30"/>
+            <Button Content="Przypisz film" Click="AssignFilmToRoom_Click" Margin="10"/>
+            <Button Content="Zobacz sale" Click="ViewRoomDetails_Click" Margin="10"/>
+        </StackPanel>
+
+        <!-- Panel Pracownicy -->
+        <Border Grid.Row="1" Grid.Column="2" Margin="10" BorderBrush="#52C7ED" Background="#9BDEF4" BorderThickness="1">
+            <GroupBox Width="220" Height="100">
+                <GroupBox.Header>
+                    <TextBlock HorizontalAlignment="Center" FontSize="18" FontWeight="Bold">Pracownicy</TextBlock>
+                </GroupBox.Header>
+                <TextBlock FontSize="15" TextWrapping="Wrap">
+                    <TextBlock.Text >Za pomocą tego panelu możesz działać na bazie danych pracowników.</TextBlock.Text>
+                </TextBlock>
+            </GroupBox>
+        </Border>
+        <StackPanel Grid.Row="2" Grid.Column="2">
+            <Button Click="AddEmployee_Click">Dodaj nowego pracownika</Button>
+            <Button Click="AssignSubordinate_Click">Przypisz podwładnego</Button>
+            <Button Click="EditEmployee_Click">Modyfikuj wpis pracownika</Button>
+            <Button Click="ViewEmployees_Click">Zobacz bazę pracowników</Button>
+
+            <ListBox Name="EmployeeListBox" Margin="10" Height="150" SelectionChanged="EmployeeListBox_SelectionChanged">
+                <!-- Lista pracowników -->
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</Window>

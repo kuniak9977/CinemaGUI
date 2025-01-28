@@ -1,0 +1,29 @@
+﻿<Window x:Class="CinemaManagerGUI.AddFilmDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Dodaj film" Height="450" Width="400">
+    <Grid>
+        <StackPanel Margin="20,20,20,30">
+            <TextBlock Text="Nazwa filmu:"/>
+            <TextBox x:Name="FilmNameTextBox" Width="350"/>
+
+            <TextBlock Text="Opis filmu:"/>
+            <TextBox Name="FilmDescriptionTextBox" Width="350" Margin="0,5" Height="90"/>
+
+            <TextBlock Text="Gatunek filmu:"/>
+            <TextBox Name="FilmTypeTextBox" Width="350" Margin="0,5"/>
+
+            <TextBlock Text="Czas trwania"/>
+            <TextBox Name="FilmLengthTextBox" Width="200" Margin="0,5" IsReadOnly="True" Text="0"/>
+            <Button Name="SetTimeButton" Content="Ustaw czas trwania" Width="200" Margin="0,10" Click="SetTimeButton_Click"/>
+
+            <TextBlock Text="Ocena filmu:"/>
+            <TextBox Name="FilmPointsTextBox" Width="200" Margin="0,5"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="10,0">
+                <Button Name="SubmitButton" Content="Zatwierdź" Width="100" Margin="5" Click="SubmitButton_Click"/>
+                <Button Name="CancelButton" Content="Anuluj" Width="100" Margin="5" Click="CancelButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
